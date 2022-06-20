@@ -2,11 +2,11 @@ import React from 'react';
 import SurveyItem from './SurveyItem ';
 import PropTypes from 'prop-types';
 
-function SurveyList({ feedback }) {
+function SurveyList({ feedback, handleDelete }) {
   return (
     <div>
       {feedback.map((item) => (
-        <SurveyItem key={item.id} item={item} />
+        <SurveyItem key={item.id} item={item} handleDelete={handleDelete}/>
       ))}
     </div>
   );

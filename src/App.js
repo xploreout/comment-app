@@ -6,11 +6,18 @@ import SurveyList from './components/SurveyList';
 
 function App() {
   const [survey, setSurvey] = useState(SurveyData);
+
+  const deleteItem = (id) => {
+    if (window.confirm('Are you share to delete the comment?')) {
+      setSurvey(survey.filter((item) => item.id !== id ))
+    }
+ 
+  };
   return (
     <>
       <Header />
       <div className='container'>
-        <SurveyList feedback={survey}  />
+        <SurveyList feedback={survey} handleDelete={deleteItem} />
       </div>
     </>
   );

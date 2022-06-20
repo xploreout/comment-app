@@ -3,11 +3,11 @@ import Card from './shared/Card';
 import PropTypes from 'prop-types';
 import { FaTimes } from 'react-icons/fa';
 
-function SurveyItem({ item }) {
+function SurveyItem({ item, handleDelete }) {
   return (
     <Card>
       <div className='num-display'>{item.rating}</div>
-      <button className='close'>
+      <button className='close' onClick={() => handleDelete(item.id)}>
         <FaTimes />
       </button>
       <div className='text-disply'>{item.text} </div>
