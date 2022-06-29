@@ -2,10 +2,10 @@ import React from 'react';
 import SurveyItem from './SurveyItem ';
 import PropTypes from 'prop-types';
 
-function SurveyList({ feedback, handleDelete }) {
+function SurveyList({ survey, handleDelete }) {
   return (
     <div>
-      {feedback.map((item) => (
+      {survey.map((item) => (
         <SurveyItem key={item.id} item={item} handleDelete={handleDelete}/>
       ))}
     </div>
@@ -14,9 +14,9 @@ function SurveyList({ feedback, handleDelete }) {
 
 SurveyList.propTypes = {
   // feedback: PropTypes.array.isRequired
-  feedback: PropTypes.arrayOf(
+  survey: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired,
       text: PropTypes.string.isRequired,
       rating: PropTypes.number.isRequired,
     })
