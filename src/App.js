@@ -2,32 +2,46 @@ import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import Header from './components/Header';
 import { useState } from 'react';
+import About from './pages/About';
 import SurveyData from './data/SurveyData';
 import SurveyList from './components/SurveyList';
 import SurveyStats from './components/SurveyStats';
 import SurveyForm from './components/SurveyForm';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
   const [survey, setSurvey] = useState(SurveyData);
 
   const addItem = (newItem) => {
     newItem.id = uuidv4();
-    setSurvey([newItem, ...survey])
+    setSurvey([newItem, ...survey]);
   };
+
   const deleteItem = (id) => {
     if (window.confirm('Are you share to delete the comment?')) {
       setSurvey(survey.filter((item) => item.id !== id));
     }
   };
+  
   return (
-    <>
+    <Router>
       <Header />
       <div className='container'>
-        <SurveyForm handleAddSurvey={addItem} />
-        <SurveyStats feedback={survey} />
-        <SurveyList survey={survey} handleDelete={deleteItem} />
+        <Routes>
+          <Route
+            path='/'
+            element={
+              <>
+                <SurveyForm handleAddSurvey={addItem} />
+                <SurveyStats feedback={survey} />
+                <SurveyList survey={survey} handleDelete={deleteItem} />}
+              </>
+            }
+          ></Route>
+          <Route path='/about' element={About} />
+        </Routes>
       </div>
-    </>
-  );
+    </Router>
+  )
 }
 export default App;

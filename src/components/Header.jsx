@@ -10,11 +10,11 @@ function Header({ text }) {
 }
 
 Header.defaultProps = {
-  text: 'Yes your comment',
+  text: 'Comment Rating',
 };
 
 Header.protoTypes = {
-  text: PropTypes.string.isRequired
+  text: PropTypes.string
   
 };
 export default Header;
