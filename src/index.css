@@ -190,3 +190,22 @@ ul {
   color: #fff;
 }
 
+.about-icon {
+  display: flex;
+  justify-content: flex-end;
+}
+.about-icon a {
+  color: #fff;
+  cursor: pointer;
+}
+.about-icon a {
+  color: #ff6a95;
+}
+
+.about h1 {
+  margin-bottom: 20px;
+}
+
+.about p {
+  margin: 10px 0;
+}

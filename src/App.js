@@ -1,6 +1,7 @@
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import Header from './components/Header';
+import AboutLink from './components/AboutLink';
 import { useState } from 'react';
 import About from './pages/About';
 import SurveyData from './data/SurveyData';
@@ -22,7 +23,7 @@ function App() {
       setSurvey(survey.filter((item) => item.id !== id));
     }
   };
-  
+
   return (
     <Router>
       <Header />
@@ -34,14 +35,15 @@ function App() {
               <>
                 <SurveyForm handleAddSurvey={addItem} />
                 <SurveyStats feedback={survey} />
-                <SurveyList survey={survey} handleDelete={deleteItem} />}
+                <SurveyList survey={survey} handleDelete={deleteItem} />
               </>
             }
-          ></Route>
-          <Route path='/about' element={About} />
+          />
+          <Route path='/about' element={<About />} />
         </Routes>
+        <AboutLink />
       </div>
     </Router>
-  )
+  );
 }
 export default App;

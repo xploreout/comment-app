@@ -50,7 +50,7 @@ function SurveyForm({ handleAddSurvey }) {
               placeholder='Enter your review'
             />
             <Button type='submit' isBtnDisabled={btnDisabled} message={message}>
-              Done
+              Submit
             </Button>
           </div>
         </form>
