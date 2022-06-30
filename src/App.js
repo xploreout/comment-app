@@ -3,18 +3,13 @@ import { v4 as uuidv4 } from 'uuid';
 import Header from './components/Header';
 import AboutLink from './components/AboutLink';
 import { useState } from 'react';
-import Card from './components/shared/Card';
 import About from './pages/About';
 import SurveyData from './data/SurveyData';
 import SurveyList from './components/SurveyList';
 import SurveyStats from './components/SurveyStats';
 import SurveyForm from './components/SurveyForm';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  NavLink,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Post from './components/Post';
 
 function App() {
   const [survey, setSurvey] = useState(SurveyData);
@@ -46,15 +41,18 @@ function App() {
             }
           />
           <Route path='/about' element={<About />} />
+          <Route path='/post/*' element={<Post />} />
+          {/* <Route path='/post/:id/:name' element={<Post />} /> */}
+          {/* <Route path='/post/*' element={<Post />} /> */}
         </Routes>
-        <Card>
+        {/* <Card>
           <NavLink to='/' activeClassName='active'>
             Home
           </NavLink>
           <NavLink to='/about' activeClassName='active'>
             About
           </NavLink>
-        </Card>
+        </Card> */}
         <AboutLink />
       </div>
     </Router>
