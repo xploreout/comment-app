@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import SurveyItem from './SurveyItem ';
-import PropTypes from 'prop-types';
 import { motion, AnimatePresence } from 'framer-motion';
+import SurveyContext from './context/SurveyContext';
 
-function SurveyList({ survey, handleDelete }) {
+function SurveyList({ handleDelete }) {
+  const { survey } = useContext(SurveyContext);
   return (
     <div>
       <AnimatePresence>
@@ -14,7 +15,7 @@ function SurveyList({ survey, handleDelete }) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            <SurveyItem key={item.id} item={item} handleDelete={handleDelete} />
+            <SurveyItem key={item.id} item={item}handleDelete={handleDelete} />
           </motion.div>
         ))}
       </AnimatePresence>
@@ -30,14 +31,5 @@ function SurveyList({ survey, handleDelete }) {
   // );
 }
 
-SurveyList.propTypes = {
-  survey: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      text: PropTypes.string.isRequired,
-      rating: PropTypes.number.isRequired,
-    })
-  ),
-};
 
 export default SurveyList;

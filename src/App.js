@@ -9,7 +9,7 @@ import SurveyList from './components/SurveyList';
 import SurveyStats from './components/SurveyStats';
 import SurveyForm from './components/SurveyForm';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Post from './components/Post';
+import { SurveyProvider } from './components/context/SurveyContext';
 
 function App() {
   const [survey, setSurvey] = useState(SurveyData);
@@ -26,36 +26,38 @@ function App() {
   };
 
   return (
-    <Router>
-      <Header />
-      <div className='container'>
-        <Routes>
-          <Route
-            path='/'
-            element={
-              <>
-                <SurveyForm handleAddSurvey={addItem} />
-                <SurveyStats feedback={survey} />
-                <SurveyList survey={survey} handleDelete={deleteItem} />
-              </>
-            }
-          />
-          <Route path='/about' element={<About />} />
-          <Route path='/post/*' element={<Post />} />
-          {/* <Route path='/post/:id/:name' element={<Post />} /> */}
-          {/* <Route path='/post/*' element={<Post />} /> */}
-        </Routes>
-        {/* <Card>
+    <SurveyProvider>
+      <Router>
+        <Header />
+        <div className='container'>
+          <Routes>
+            <Route
+              path='/'
+              element={
+                <>
+                  <SurveyForm handleAddSurvey={addItem} />
+                  <SurveyStats />
+                  <SurveyList  handleDelete={deleteItem} />
+                </>
+              }
+            />
+            <Route path='/about' element={<About />} />
+            {/* <Route path='/post/*' element={<Post />} /> */}
+            {/* <Route path='/post/:id/:name' element={<Post />} /> */}
+            {/* <Route path='/post/*' element={<Post />} /> */}
+          </Routes>
+          {/* <Card>
           <NavLink to='/' activeClassName='active'>
-            Home
+          Home
           </NavLink>
           <NavLink to='/about' activeClassName='active'>
-            About
+          About
           </NavLink>
         </Card> */}
-        <AboutLink />
-      </div>
-    </Router>
+          <AboutLink />
+        </div>
+      </Router>
+    </SurveyProvider>
   );
 }
 export default App;

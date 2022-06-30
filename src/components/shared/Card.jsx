@@ -18,7 +18,7 @@ function Card({ children, reverse }) {
 }
 
 Card.propTypes = {
-  childre: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired,
   reverse: PropTypes.bool,
 };
 
