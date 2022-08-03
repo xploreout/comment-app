@@ -13,6 +13,9 @@ body {
   line-height: 1.6;
 }
 
+h5 {
+  padding-bottom: 10px;
+}
 ul {
   list-style: none;
 }
@@ -77,6 +80,9 @@ header {
   border: none;
 }
 
+.edit {
+  right: 40px;
+}
 .feedback-stats {
   color: #fff;
   display: flex;
@@ -105,7 +111,7 @@ header {
 }
 
 .btn:hover {
-  transform: scalre(0.98);
+  transform: scale(0.98);
   opacity: 0.9;
 }
 
@@ -131,6 +137,7 @@ header {
   border: 1px solid #ccc;
   padding: 8px 10px;
   border-radius: 8px;
+  margin-top: 10px
 }
 input {
   flex-grow: 2;
@@ -141,6 +148,10 @@ input {
 input:focus {
   outline: none;
 }
+
+/* input:checked {
+  background-color: #ff6a95;
+} */
 
 ul {
   list-style: none;
@@ -153,7 +164,7 @@ ul {
   background: #f4f4f4;
   width: 50px;
   height: 50px;
-  padding: 10px;
+  margin: 5px;
   text-align: center;
   border-radius: 50%;
   font-size: 19px;

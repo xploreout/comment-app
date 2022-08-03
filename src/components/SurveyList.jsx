@@ -3,8 +3,9 @@ import SurveyItem from './SurveyItem ';
 import { motion, AnimatePresence } from 'framer-motion';
 import SurveyContext from './context/SurveyContext';
 
-function SurveyList({ handleDelete }) {
+function SurveyList() {
   const { survey } = useContext(SurveyContext);
+
   return (
     <div>
       <AnimatePresence>
@@ -15,7 +16,7 @@ function SurveyList({ handleDelete }) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            <SurveyItem key={item.id} item={item}handleDelete={handleDelete} />
+            <SurveyItem key={item.id} item={item}  />
           </motion.div>
         ))}
       </AnimatePresence>
@@ -24,12 +25,13 @@ function SurveyList({ handleDelete }) {
 
   // return (
   //   <div>
-  //     {survey.map((item) => (
-  //       <SurveyItem key={item.id} item={item} handleDelete={handleDelete}/>
+
+  //     {survey && survey.map((item) => (
+
+  //       <SurveyItem key={item.id} item={item} />
   //     ))}
   //   </div>
   // );
 }
-
 
 export default SurveyList;

@@ -10,7 +10,7 @@ function Header({ text }) {
 }
 
 Header.defaultProps = {
-  text: 'Comment Rating',
+  text: '',
 };
 
 Header.protoTypes = {

@@ -5,8 +5,9 @@ import { Link } from 'react-router-dom';
 function AboutLink() {
   return (
     <div className='about-icon'>
-      <Link to='/about'>
-        <FaQuestion size={30}>About</FaQuestion>
+      <Link to={{pathname: '/about', search:'?sort-name', hash: '#hello'}}
+      >
+        <FaQuestion size={25}/>
       </Link>
     </div>
   );

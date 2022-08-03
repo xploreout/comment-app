@@ -1,9 +1,21 @@
 import React from 'react';
+import {useContext, useState, useEffect } from 'react';
+import SurveyContext from './context/SurveyContext';
 
-function Rating({ select, selected }) {
+function Rating({ select }) {
+  const { surveyEdit } = useContext(SurveyContext)
+
+  const [selected, setSelected] = useState(10)
+
+  useEffect (() => {
+    setSelected(surveyEdit.item.rating)
+  },[surveyEdit]);
+  
   const handleChange = (e) => {
+    setSelected(+e.currentTarget.value)
     select(+e.currentTarget.value);
   };
+
   return (
     <ul className='rating'>
       <li>
