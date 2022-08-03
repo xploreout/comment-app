@@ -1,1 +1,1 @@
-# This is a Feedback & comment  app
+# This is a React Feedback application
